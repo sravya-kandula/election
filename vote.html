@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cast Your Vote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #003366;
+      padding: 10px 20px;
+      color: white;
+    }
+    .navbar img {
+      height: 60px;
+      margin-right: 10px;
+    }
+    .navbar .brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    /* Banner heading */
+    .heading-section {
+      background: orange;
+      color: white;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    /* Camera */
+    .camera-btn {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .camera-btn:hover {
+      background: #0056b3;
+    }
+    video {
+      width: 300px;
+      max-width: 90%;
+      margin-top: 20px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+    }
+    .verified {
+      display: none;
+      margin-top: 15px;
+      font-size: 18px;
+      color: white;
+      background: green;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Parties grid */
+    .parties {
+      display: none;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+    .parties-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 20px;
+      justify-items: center;
+      margin-top: 30px;
+    }
+    .party-circle {
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 160px;
+    }
+    .party-circle img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #ccc;
+      object-fit: cover;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .party-circle p {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .party-circle:hover {
+      transform: scale(1.05);
+    }
+    .party-circle.selected img {
+      border-color: green;
+      box-shadow: 0 0 12px rgba(0, 128, 0, 0.7);
+    }
+    /* Submit button */
+    .submit-btn {
+      display: block;
+      margin: 40px auto 20px;
+      padding: 14px 28px;
+      background: green;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .submit-btn:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="Emblem_of_India.png" alt="National Emblem">
+    <span class="brand">MyVote</span>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <div style="margin-left:auto;">
+    <i class="fa-solid fa-house"></i>
+    <a href="http://127.0.0.1:3000/index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a>
+  </div>
+  </div>
+
+  <!-- Heading -->
+  <div class="heading-section">
+    Official Voting Portal – Cast Your Vote
+  </div>
+
+  <!-- Main Content -->
+  <p style="margin-top: 40px; font-size: 18px;">
+    To continue, please allow camera access for official voter verification.
+  </p>
+  <button class="camera-btn" onclick="startCamera()">📷 Enable Camera Verification</button>
+  
+  <video id="video" autoplay></video>
+  <div id="verifiedBadge" class="verified">✅ Identity Verified</div>
+
+  <!-- Parties Section -->
+  <div class="parties" id="partiesSection">
+    <h2>Select Your Preferred Party</h2>
+    <div class="parties-grid">
+      <div class="party-circle" onclick="selectParty(this)" data-party="BJP">
+        <img src="bjp.jpeg" alt="BJP Logo">
+        <p>Bharatiya Janata Party (BJP)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="INC">
+        <img src="inc.png" alt="INC Logo">
+        <p>Indian National Congress (INC)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="AAP">
+        <img src="aap.jpeg" alt="AAP Logo">
+        <p>Aam Aadmi Party (AAP)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="CPI">
+        <img src="cpi.png" alt="CPI Logo">
+        <p>Communist Party of India (CPI)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="NCP">
+        <img src="ncp.jpeg" alt="NCP Logo">
+        <p>Nationalist Congress Party (NCP)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="DMK">
+        <img src="dmk.jpeg" alt="DMK Logo">
+        <p>Dravida Munnetra Kazhagam (DMK)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="TRS">
+        <img src="trs.jpeg" alt="TRS Logo">
+        <p>Telangana Rashtra Samithi (TRS)</p>
+      </div>
+      <div class="party-circle" onclick="selectParty(this)" data-party="TDP">
+        <img src="tdp.png" alt="TDP Logo">
+        <p>Telugu Desam Party (TDP)</p>
+      </div>
+    </div>
+    <button class="submit-btn" id="submitVote" disabled onclick="submitVote()">Submit Your Vote</button>
+  </div>
+
+  <script>
+  let selectedParty = null;
+  let activeStream = null;
+
+  function startCamera() {
+    const video = document.getElementById('video');
+    const verified = document.getElementById('verifiedBadge');
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        activeStream = stream;
+        video.style.display = 'block';
+        video.srcObject = stream;
+        setTimeout(() => {
+          verified.style.display = 'inline-block';
+          document.getElementById('partiesSection').style.display = 'block';
+          // Stop camera after verification
+          stopCamera();
+        }, 2000);
+      })
+      .catch(err => {
+        alert('Camera access denied: ' + err);
+      });
+  }
+
+  function stopCamera() {
+    const video = document.getElementById('video');
+    if (activeStream) {
+      activeStream.getTracks().forEach(track => track.stop());
+      activeStream = null;
+    }
+    video.style.display = 'none';
+  }
+
+  function selectParty(element) {
+    document.querySelectorAll('.party-circle').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedParty = element.dataset.party;
+    document.getElementById('submitVote').disabled = false;
+  }
+
+  function submitVote() {
+    if (!selectedParty) {
+      alert('Please select a party before submitting.');
+      return;
+    }
+    // Hide parties section
+    document.getElementById('partiesSection').style.display = 'none';
+    // Show congratulations message
+    const congrats = document.createElement('div');
+    congrats.style.marginTop = '100px';
+    congrats.style.fontSize = '28px';
+    congrats.style.fontWeight = 'bold';
+    congrats.style.color = 'green';
+    congrats.textContent = '🎉 Congratulations! Your vote has been successfully submitted.';
+    document.body.appendChild(congrats);
+  }
+</script>
+</body>
+</html>

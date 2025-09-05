@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Videos - MyVote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      margin: 0;
+    }
+    .navbar{
+      background-color:#1579dd;
+      text-align: center;
+      margin: 0;
+      display: flex;
+      height: 100px;
+      padding: 10px;
+    }
+    .logo{
+      padding-left: 20px;
+      padding-top:10px;
+      padding-bottom: 10px;
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 30px;
+      color: white;
+      padding-left: 30px;
+    }
+    .home{
+      padding-top: 40px;
+      font-size: 18px;
+    }
+
+    /* Official Marquee Banner */
+    .official-marquee {
+      background: orange;
+      color: rgb(255, 255, 255);
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: 8px 0;
+      font-weight: bold;
+    }
+    .official-marquee .marquee-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee-scroll 15s linear infinite;
+    }
+    .official-marquee a {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .videos-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .video-row {
+      display: flex;
+      align-items: center;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 10px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .video-row:hover {
+      transform: scale(1.02);
+    }
+
+    .video-box {
+      background-image: url('videotraining.webp');
+      background-size: cover;
+      background-position: center;
+      width: 200px;
+      height: 120px;
+      border-radius: 10px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .pause-icon {
+      font-size: 40px;
+      color: white;
+      background: red;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .video-info {
+      margin-left: 20px;
+    }
+
+    .video-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1579dd;
+      margin-bottom: 5px;
+    }
+
+    .lang-label {
+      font-size: 16px;
+      color: #333;
+      font-weight: 600;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<nav class="navbar"> 
+    <logo class="logo"><img src="Emblem_of_India.png" alt="National Portal Logo" width="80" height="80"></logo>
+    <h1>My Vote</h1>
+    <div class="home" style="margin-left:auto;">
+      <i class="fa-solid fa-house" style="color:white;"></i>
+      <a href="http://127.0.0.1:3000/index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a>
+    </div>
+</nav>
+
+<!-- Official Note Marquee -->
+<div class="official-marquee">
+  <div class="marquee-content">📢 Official Notice: Training videos are available here to help voters easily understand the voting process. Please watch these demonstrations for guidance before casting your vote. For official election-related information, visit <a href="https://www.india.gov.in" target="_blank">https://www.india.gov.in</a>.
+  </div>
+</div>
+
+<div class="videos-section">
+
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">Voting Process Training Video</div><div class="lang-label">English</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण वीडियो</div><div class="lang-label">हिन्दी (Hindi)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ఓటింగ్ ప్రాసెస్ ట్రైనింగ్ వీడియో</div><div class="lang-label">తెలుగు (Telugu)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ভোটিং প্রসেস ট্রেনিং ভিডিও</div><div class="lang-label">বাংলা (Bangla)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण व्हिडिओ</div><div class="lang-label">मराठी (Marathi)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">வாக்களிப்பு செயல்முறை பயிற்சி வீடியோ</div><div class="lang-label">தமிழ் (Tamil)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">વોટિંગ પ્રક્રિયા તાલીમ વીડિયો</div><div class="lang-label">ગુજરાતી (Gujarati)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ووٹنگ پروسیس ٹریننگ ویڈیو</div><div class="lang-label">اردو (Urdu)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ಮತದಾನ ಪ್ರಕ್ರಿಯೆ ತರಬೇತಿ ವೀಡಿಯೊ</div><div class="lang-label">ಕನ್ನಡ (Kannada)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ଭୋଟିଂ ପ୍ରକ୍ରିୟା ଟ୍ରେନିଙ୍ଗ ଭିଡିଓ</div><div class="lang-label">ଓଡ଼ିଆ (Odia)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ਵੋਟਿੰਗ ਪ੍ਰਕਿਰਿਆ ਸਿਖਲਾਈ ਵੀਡੀਓ</div><div class="lang-label">ਪੰਜਾਬੀ (Punjabi)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">വോട്ടിംഗ് പ്രോസസ് ട്രെയിനിംഗ് വീഡിയോ</div><div class="lang-label">മലയാളം (Malayalam)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण विडियो</div><div class="lang-label">संस्कृतम् (Sanskrit)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ভোটিং প্ৰক্ৰিয়া প্ৰশিক্ষণ ভিডিঅ’</div><div class="lang-label">অসমীয়া (Assamese)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ভোটিং প্রোসেস ট্রেইনিং ভিডিও</div><div class="lang-label">মৈতৈলোন্ (Manipuri / Meitei)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण व्हिडिओ</div><div class="lang-label">कोंकणी (Konkani)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण वीडियो</div><div class="lang-label">डोगरी (Dogri)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ووټینګ پروسې ټریننګ ویډیو</div><div class="lang-label">कॉशुर (Kashmiri)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण भिडियो</div><div class="lang-label">नेपाली (Nepali)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण वीडियो</div><div class="lang-label">मैथिली (Maithili)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण वीडियो</div><div class="lang-label">संथाली (Santali)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">मतदान प्रक्रिया प्रशिक्षण वीडियो</div><div class="lang-label">बोडो (Bodo)</div></div></div>
+  <div class="video-row"><div class="video-box"><div class="pause-icon">&#9654;</div></div><div class="video-info"><div class="video-title">ووٽنگ پروسيس ٽريننگ وڊيو</div><div class="lang-label">سنڌي (Sindhi)</div></div></div>
+
+</div>
+
+</body>
+</html>

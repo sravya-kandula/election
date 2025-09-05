@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Parties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #003366;
+      padding: 10px 20px;
+      color: white;
+    }
+    .navbar .logo img {
+      height: 60px;
+    }
+    .navbar .brand {
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .home{
+      padding-left: 900px;
+    }
+    .heading-section {
+      text-align: center;
+      background: orange;
+      color: white;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .parties-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 5fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .party-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .party-card:hover {
+      transform: translateY(-5px);
+    }
+    .party-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .party-card h3 {
+      margin: 10px 0 0;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-left" style="display: flex; align-items: center;">
+      <div class="logo">
+        <img src="Emblem_of_India.png" alt="National Emblem">
+      </div>
+      <span class="brand">MyVote</span>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <div class="home"style="margin-left:auto;">
+    <i class="fa-solid fa-house"></i>
+    <a href="http://127.0.0.1:3000/index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a>
+  </div>
+    </div>
+  </div>
+
+  <!-- Heading -->
+  <div class="heading-section">
+    Available Political Parties in India
+  </div>
+
+  <!-- Parties List -->
+  <div class="parties-container">
+    <div class="party-card">
+      <img src="bjp.jpeg" alt="BJP Logo">
+      <h3>Bharatiya Janata Party (BJP)</h3>
+    </div>
+    <div class="party-card">
+      <img src="inc.png" alt="INC Logo">
+      <h3>Indian National Congress (INC)</h3>
+    </div>
+    <div class="party-card">
+      <img src="aap.jpeg" alt="AAP Logo">
+      <h3>Aam Aadmi Party (AAP)</h3>
+    </div>
+    <div class="party-card">
+      <img src="cpi.png" alt="CPI Logo">
+      <h3>Communist Party of India (CPI)</h3>
+    </div>
+    <div class="party-card">
+      <img src="ncp.jpeg" alt="NCP Logo">
+      <h3>Nationalist Congress Party (NCP)</h3>
+    </div>
+    <div class="party-card">
+      <img src="dmk.jpeg" alt="DMK Logo">
+      <h3>Dravida Munnetra Kazhagam (DMK)</h3>
+    </div>
+     <div class="party-card">
+      <img src="trs.jpeg" alt="TRS Logo">
+      <h3>Telangana rashtra samithi(TRS)</h3>
+    </div>
+     <div class="party-card">
+      <img src="tdp.png" alt="tdp Logo">
+      <h3>Telugu dhesham party(TDP)</h3>
+    </div>
+    <!-- Add more parties as needed -->
+  </div>
+</body>
+</html>

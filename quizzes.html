@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Election Awareness Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #003366;
+      padding: 10px 20px;
+      color: white;
+    }
+    .navbar img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    .navbar .brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .home{
+      padding-top: 40px;
+      font-size: 18px;
+    }
+    /* Heading */
+    .heading-section {
+      background: orange;
+      color: white;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    /* Quiz container */
+    .quiz-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .quiz-question {
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    .quiz-options label {
+      display: block;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      background: #f9f9f9;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .quiz-options label:hover {
+      background: #eaeaea;
+    }
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      background: green;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .result {
+      font-size: 20px;
+      font-weight: bold;
+      color: #006400;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="amblem.png" alt="National Emblem">
+    <span class="brand">MyVote</span>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <div style="margin-left:auto;">
+    <i class="fa-solid fa-house"></i>
+    <a href="http://127.0.0.1:3000/index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a>
+  </div>
+  </div>
+
+  <!-- Heading -->
+  <div class="heading-section">
+    Election Awareness Quiz
+  </div>
+
+  <!-- Quiz -->
+  <div class="quiz-container">
+    <form id="quizForm">
+      <div class="quiz-question">1. Which body conducts elections in India?</div>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="A"> Parliament of India</label>
+        <label><input type="radio" name="q1" value="B"> Election Commission of India</label>
+        <label><input type="radio" name="q1" value="C"> Supreme Court of India</label>
+        <label><input type="radio" name="q1" value="D"> President of India</label>
+      </div>
+
+      <div class="quiz-question">2. What is the minimum age required to vote in India?</div>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="A"> 16 years</label>
+        <label><input type="radio" name="q2" value="B"> 17 years</label>
+        <label><input type="radio" name="q2" value="C"> 18 years</label>
+        <label><input type="radio" name="q2" value="D"> 21 years</label>
+      </div>
+
+      <div class="quiz-question">3. How many houses does the Indian Parliament have?</div>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="A"> One</label>
+        <label><input type="radio" name="q3" value="B"> Two</label>
+        <label><input type="radio" name="q3" value="C"> Three</label>
+        <label><input type="radio" name="q3" value="D"> Four</label>
+      </div>
+
+      <div class="quiz-question">4. Who is eligible to contest in Lok Sabha elections?</div>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="A"> Any Indian citizen above 18 years</label>
+        <label><input type="radio" name="q4" value="B"> Any Indian citizen above 21 years</label>
+        <label><input type="radio" name="q4" value="C"> Any Indian citizen above 25 years</label>
+        <label><input type="radio" name="q4" value="D"> Any Indian citizen above 30 years</label>
+      </div>
+
+      <div class="quiz-question">5. Which document is primarily used to identify voters?</div>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="A"> PAN Card</label>
+        <label><input type="radio" name="q5" value="B"> Aadhaar Card</label>
+        <label><input type="radio" name="q5" value="C"> Voter ID (EPIC)</label>
+        <label><input type="radio" name="q5" value="D"> Driving License</label>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const correctAnswers = {
+        q1: "B",
+        q2: "C",
+        q3: "B",
+        q4: "C",
+        q5: "C"
+      };
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+
+      for (let q in correctAnswers) {
+        const answer = document.querySelector('input[name="' + q + '"]:checked');
+        if (answer && answer.value === correctAnswers[q]) {
+          score++;
+        }
+      }
+
+      document.getElementById('result').innerText =
+        `🎉 Congratulations! You scored ${score} out of ${total}.`;
+    }
+  </script>
+</body>
+</html>

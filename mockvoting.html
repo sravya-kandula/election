@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mock Voting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #003366;
+      padding: 10px 20px;
+      color: white;
+    }
+    .navbar img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    .navbar .brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    /* Page Heading */
+    .heading-section {
+      background: orange;
+      color: white;
+      padding: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+    }
+    /* Form Section */
+    .form-section {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: left;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .form-section h1 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #003366;
+      font-size: 26px;
+    }
+    .form-section p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="number"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .instructions {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+    }
+    .start-btn {
+      display: block;
+      width: 100%;
+      background: green;
+      color: white;
+      font-size: 18px;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: background 0.3s;
+    }
+    .start-btn:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+    .start-btn:hover:not(:disabled) {
+      background: #006400;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="amblem.png" alt="National Emblem">
+    <span class="brand">MyVote</span>
+  </div>
+
+  <!-- Heading -->
+  <div class="heading-section">
+    Official Mock Voting Practice
+  </div>
+
+  <!-- Form -->
+  <div class="form-section">
+    <h1>Mock Voting</h1>
+    <p>Practice the voting process safely before the official session.</p>
+
+    <form id="mockVoteForm">
+      <label for="mobile">Mobile Number:</label>
+      <input type="text" id="mobile" name="mobile" placeholder="Enter your registered mobile number" required>
+
+      <label for="aadhar">Aadhaar Number:</label>
+      <input type="text" id="aadhar" name="aadhar" placeholder="Enter your Aadhaar number" required>
+
+      <label for="pan">PAN Number:</label>
+      <input type="text" id="pan" name="pan" placeholder="Enter your PAN number" required>
+
+      <label for="voterid">Upload Voter ID:</label>
+      <input type="file" id="voterid" name="voterid" accept="image/*,application/pdf" required>
+
+      <div class="instructions">
+        <input type="checkbox" id="instructions" name="instructions">
+        <label for="instructions"> I have read and understood the official voting instructions.</label>
+      </div>
+
+      <button type="button" class="start-btn" id="startVotingBtn" disabled onclick="startVoting()">Start Voting</button>
+    </form>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById('instructions');
+    const startBtn = document.getElementById('startVotingBtn');
+
+    checkbox.addEventListener('change', () => {
+      startBtn.disabled = !checkbox.checked;
+    });
+
+    function startVoting() {
+      // Normally you'd validate info and verify the face here
+      window.location.href = 'vote.html';
+    }
+  </script>
+
+</body>
+</html>
